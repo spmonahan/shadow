@@ -9,8 +9,8 @@ import {
   Text,
   FontIcon,
   Icon,
-  MergeStylesRootProvider_unstable,
-  MergeStylesShadowRootProvider_unstable,
+  MergeStylesRootProvider,
+  MergeStylesShadowRootProvider,
 } from '@fluentui/react';
 import { CompassNWIcon, DictionaryIcon, TrainSolidIcon } from '@fluentui/react-icons-mdl2';
 // eslint-disable-next-line
@@ -68,34 +68,35 @@ const TestComp: React.FC<TestCompProps> = ({ inShadow }) => {
   );
 };
 
-export const App: React.FC = () => {
+export type ShadowProps = {
+  window?: Window;
+};
+
+export const Shadow: React.FC<ShadowProps> = ({ window, children }) => {
   // This is a ref but we're using state to manage it so we can force
   // a re-render.
-  const [shadowRootEl, setShadowRootEl] = React.useState<HTMLElement | null>(null);
+  const [shadowRootEl, setShadowRootEl] = React.useState<HTMLElement | null>(
+    null
+  );
+
+  return (
+    <MergeStylesRootProvider window={window}>
+      <root.div className="shadow-root" delegatesFocus ref={setShadowRootEl}>
+        <MergeStylesShadowRootProvider shadowRoot={shadowRootEl?.shadowRoot}>
+          {children}
+        </MergeStylesShadowRootProvider>
+      </root.div>
+    </MergeStylesRootProvider>
+  );
+};
+
+export const App: React.FC = () => {
 
   return (
     <>
-      {/* Root shadow DOM context. 
-          You only need one per app and ideally it will be at
-          the root of your React tree.
-      */}
-      <MergeStylesRootProvider_unstable>
-        {/* Shadow DOM context.
-            This example use `react-shadow` but that is not required (yet, that may change).
-            Presently Fluent v8 just needs a reference to a shadowRoot.
-        */}
-        <root.div className="shadow-root" delegatesFocus ref={setShadowRootEl}>
-          {/*
-            Context for the shadow root.
-            You need one per shadow root in your application.
-            This context manages adopted only the styles that are needed
-            based on the components rendered as its children.
-          */}
-          <MergeStylesShadowRootProvider_unstable shadowRoot={shadowRootEl?.shadowRoot}>
+      <Shadow>
             <TestComp inShadow={true} />
-          </MergeStylesShadowRootProvider_unstable>
-        </root.div>
-      </MergeStylesRootProvider_unstable>
+      </Shadow>
       <TestComp inShadow={false} />
     </>
   );
