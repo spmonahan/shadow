@@ -79,9 +79,17 @@ export const Shadow: React.FC<ShadowProps> = ({ window, children }) => {
     null
   );
 
+  const ref = React.useRef<HTMLElement>(null);
+
+  React.useEffect(() => {
+    if (ref.current) {
+      setShadowRootEl(ref.current);
+    }
+  }, []);
+
   return (
     <MergeStylesRootProvider window={window}>
-      <root.div className="shadow-root" delegatesFocus ref={setShadowRootEl}>
+      <root.div className="shadow-root" delegatesFocus ref={ref}>
         <MergeStylesShadowRootProvider shadowRoot={shadowRootEl?.shadowRoot}>
           {children}
         </MergeStylesShadowRootProvider>
@@ -95,9 +103,8 @@ export const App: React.FC = () => {
   return (
     <>
       <Shadow>
-            <TestComp inShadow={true} />
+        <TestComp inShadow={true} />
       </Shadow>
-      <TestComp inShadow={false} />
     </>
   );
 };

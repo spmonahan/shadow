@@ -24732,7 +24732,7 @@ index 0000000..87766de
 +export declare const useMergeStylesRootStylesheets: () => Map<string, CSSStyleSheet>;
 diff --git a/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesRootContext.js b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesRootContext.js
 new file mode 100644
-index 0000000..085871a
+index 0000000..7ff967b
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesRootContext.js
 @@ -0,0 +1,74 @@
@@ -24771,7 +24771,7 @@ index 0000000..085871a
 +        if (!win) {
 +            return;
 +        }
-+        var sheet = merge_styles_1.Stylesheet.getInstance();
++        var sheet = merge_styles_1.Stylesheet.getInstance((0, merge_styles_1.makeShadowConfig)(merge_styles_1.GLOBAL_STYLESHEET_KEY, false, win));
 +        sheet.onAddConstructableStyleSheet(sheetHandler);
 +        return function () {
 +            sheet.offAddConstructableStyleSheet(sheetHandler);
@@ -24813,11 +24813,11 @@ index 0000000..085871a
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesRootContext.js.map b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesRootContext.js.map
 new file mode 100644
-index 0000000..09e6b8d
+index 0000000..c7af3c3
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesRootContext.js.map
 @@ -0,0 +1 @@
-+{"version":3,"file":"MergeStylesRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesRootContext.tsx"],"names":[],"mappings":"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"}
++{"version":3,"file":"MergeStylesRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesRootContext.tsx"],"names":[],"mappings":"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"}
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.d.ts b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.d.ts
 new file mode 100644
@@ -24874,18 +24874,18 @@ index 0000000..0822763
 +export declare const useShadowConfig: (stylesheetKey: string, win?: Window) => import("@fluentui/merge-styles").ShadowConfig;
 diff --git a/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.js b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.js
 new file mode 100644
-index 0000000..9f7ee47
+index 0000000..c54e37d
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.js
-@@ -0,0 +1,88 @@
+@@ -0,0 +1,150 @@
 +"use strict";
 +Object.defineProperty(exports, "__esModule", { value: true });
 +exports.useShadowConfig = exports.useMergeStylesShadowRootContext = exports.useHasMergeStylesShadowRootContext = exports.useAdoptedStylesheet = exports.MergeStylesShadowRootConsumer = exports.MergeStylesShadowRootProvider = void 0;
 +var tslib_1 = require("tslib");
 +var React = require("react");
 +var merge_styles_1 = require("@fluentui/merge-styles");
-+var FocusRectsProvider_1 = require("../FocusRectsProvider");
 +var MergeStylesRootContext_1 = require("./MergeStylesRootContext");
++var react_window_provider_1 = require("@fluentui/react-window-provider");
 +var MergeStylesShadowRootContext = React.createContext(undefined);
 +/**
 + * Context for a shadow root.
@@ -24898,11 +24898,9 @@ index 0000000..9f7ee47
 +            shadowRoot: shadowRoot,
 +        };
 +    }, [shadowRoot]);
-+    var focusProviderRef = React.useRef(null);
 +    return (React.createElement(MergeStylesShadowRootContext.Provider, tslib_1.__assign({ value: value }, props),
 +        React.createElement(GlobalStyles, null),
-+        React.createElement(FocusRectsProvider_1.FocusRectsProvider, { providerRef: focusProviderRef },
-+            React.createElement("div", { className: "ms-MergeStylesShadowRootProvider", ref: focusProviderRef }, props.children))));
++        props.children));
 +};
 +exports.MergeStylesShadowRootProvider = MergeStylesShadowRootProvider;
 +var MergeStylesShadowRootConsumer = function (_a) {
@@ -24923,19 +24921,83 @@ index 0000000..9f7ee47
 +var useAdoptedStylesheet = function (stylesheetKey) {
 +    var shadowCtx = (0, exports.useMergeStylesShadowRootContext)();
 +    var rootMergeStyles = (0, MergeStylesRootContext_1.useMergeStylesRootStylesheets)();
++    var doc = (0, react_window_provider_1.useDocument)();
++    var win = (0, react_window_provider_1.useWindow)();
++    // console.log(doc?.defaultView.__SENTINAL__);
++    var polyfillInsertListners = React.useRef({});
++    React.useEffect(function () {
++        var polyfillListeners = polyfillInsertListners.current;
++        polyfillInsertListners.current = {};
++        return function () {
++            var sheet = merge_styles_1.Stylesheet.getInstance((0, merge_styles_1.makeShadowConfig)(stylesheetKey, true, win));
++            Object.keys(polyfillListeners).forEach(function (key) {
++                sheet.offInsertRuleIntoConstructableStyleSheet(polyfillListeners[key]);
++            });
++        };
++    }, [win, stylesheetKey]);
 +    if (!shadowCtx) {
 +        return false;
 +    }
 +    if (shadowCtx.shadowRoot && !shadowCtx.stylesheets.has(stylesheetKey)) {
 +        var adoptableStyleSheet = rootMergeStyles.get(stylesheetKey);
-+        if (adoptableStyleSheet) {
-+            shadowCtx.stylesheets.set(stylesheetKey, adoptableStyleSheet);
-+            shadowCtx.shadowRoot.adoptedStyleSheets = tslib_1.__spreadArray(tslib_1.__spreadArray([], shadowCtx.shadowRoot.adoptedStyleSheets, true), [adoptableStyleSheet], false);
++        if (adoptableStyleSheet && doc) {
++            adoptSheet(shadowCtx, doc, stylesheetKey, adoptableStyleSheet, polyfillInsertListners.current);
 +        }
 +    }
 +    return true;
 +};
 +exports.useAdoptedStylesheet = useAdoptedStylesheet;
++var updatePolyfillSheet = function (shadowCtx, stylesheetKey, rule) {
++    var shadowRoot = shadowCtx.shadowRoot;
++    var style = shadowRoot.querySelector("[data-merge-styles-stylesheet-key=\"".concat(stylesheetKey, "\"]"));
++    if (style === null || style === void 0 ? void 0 : style.sheet) {
++        style.sheet.insertRule(rule);
++    }
++};
++var adoptSheet = function (shadowCtx, doc, stylesheetKey, stylesheet, listenerRef) {
++    var _a;
++    var shadowRoot = shadowCtx.shadowRoot;
++    shadowCtx.stylesheets.set(stylesheetKey, stylesheet);
++    var sheet = merge_styles_1.Stylesheet.getInstance();
++    if (sheet.supportsConstructableStylesheets()) {
++        // The current spec allows the `adoptedStyleSheets` array to be modified.
++        // Previous versions of the spec required a new array to be created.
++        // For more details see: https://github.com/microsoft/fast/pull/6703
++        if (sheet.supportsModifyingAdoptedStyleSheets()) {
++            shadowRoot.adoptedStyleSheets.push(stylesheet);
++        }
++        else {
++            shadowRoot.adoptedStyleSheets = tslib_1.__spreadArray(tslib_1.__spreadArray([], shadowRoot.adoptedStyleSheets, true), [stylesheet], false);
++        }
++    }
++    else {
++        var style = doc.createElement('style');
++        style.setAttribute('data-merge-styles-stylesheet-key', stylesheetKey);
++        var otherStyles = shadowRoot.querySelectorAll('[data-merge-styles-stylesheet-key]');
++        if (otherStyles.length > 0) {
++            shadowRoot.insertBefore(style, otherStyles[otherStyles.length - 1].nextSibling);
++        }
++        else {
++            shadowRoot.insertBefore(style, shadowRoot.firstChild);
++        }
++        if (style.sheet) {
++            (0, merge_styles_1.cloneCSSStyleSheet)(stylesheet, style.sheet);
++            if (!listenerRef[stylesheetKey]) {
++                var onInsert = function (_a) {
++                    var key = _a.key, rule = _a.rule;
++                    if (key === stylesheetKey) {
++                        if (shadowCtx && rule) {
++                            updatePolyfillSheet(shadowCtx, key, rule);
++                        }
++                    }
++                };
++                var polyfillSheet = merge_styles_1.Stylesheet.getInstance((0, merge_styles_1.makeShadowConfig)(stylesheetKey, true, (_a = doc.defaultView) !== null && _a !== void 0 ? _a : undefined));
++                polyfillSheet.onInsertRuleIntoConstructableStyleSheet(onInsert);
++                listenerRef[stylesheetKey] = onInsert;
++            }
++        }
++    }
++};
 +/**
 + * Test if a context is available.
 + * @returns true if there is a context.
@@ -24969,11 +25031,11 @@ index 0000000..9f7ee47
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.js.map b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.js.map
 new file mode 100644
-index 0000000..58774d0
+index 0000000..2ca5f06
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib-commonjs/shadowDom/MergeStylesShadowRootContext.js.map
 @@ -0,0 +1 @@
-+{"version":3,"file":"MergeStylesShadowRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesShadowRootContext.tsx"],"names":[],"mappings":"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"}
++{"version":3,"file":"MergeStylesShadowRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesShadowRootContext.tsx"],"names":[],"mappings":"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"}
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib-commonjs/string.js.map b/node_modules/@fluentui/utilities/lib-commonjs/string.js.map
 index 435c652..fcd2ea7 100644
@@ -31588,7 +31650,7 @@ index 0000000..87766de
 +export declare const useMergeStylesRootStylesheets: () => Map<string, CSSStyleSheet>;
 diff --git a/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesRootContext.js b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesRootContext.js
 new file mode 100644
-index 0000000..d344ee1
+index 0000000..8b49c80
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesRootContext.js
 @@ -0,0 +1,69 @@
@@ -31624,7 +31686,7 @@ index 0000000..d344ee1
 +        if (!win) {
 +            return;
 +        }
-+        var sheet = Stylesheet.getInstance();
++        var sheet = Stylesheet.getInstance(makeShadowConfig(GLOBAL_STYLESHEET_KEY, false, win));
 +        sheet.onAddConstructableStyleSheet(sheetHandler);
 +        return function () {
 +            sheet.offAddConstructableStyleSheet(sheetHandler);
@@ -31664,11 +31726,11 @@ index 0000000..d344ee1
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesRootContext.js.map b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesRootContext.js.map
 new file mode 100644
-index 0000000..004c9d8
+index 0000000..4f9c579
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesRootContext.js.map
 @@ -0,0 +1 @@
-+{"version":3,"file":"MergeStylesRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesRootContext.tsx"],"names":[],"mappings":"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"}
++{"version":3,"file":"MergeStylesRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesRootContext.tsx"],"names":[],"mappings":";AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAC/B,OAAO,EAAE,qBAAqB,EAAE,UAAU,EAAE,gBAAgB,EAAE,MAAM,wBAAwB,CAAC;AAC7F,OAAO,EAAE,SAAS,EAAE,MAAM,QAAQ,CAAC;AAiBnC,IAAM,sBAAsB,GAAG,KAAK,CAAC,aAAa,CAA8B;IAC9E,WAAW,EAAE,IAAI,GAAG,EAAE;CACvB,CAAC,CAAC;AAeH;;;GAGG;AACH,MAAM,CAAC,IAAM,uBAAuB,GAA2C,UAAC,EAI/E;IAHC,IAAa,UAAU,iBAAA,EACf,UAAU,YAAA,EACf,KAAK,cAHsE,yBAI/E,CADS;IAER,IAAM,GAAG,GAAG,UAAU,aAAV,UAAU,cAAV,UAAU,GAAI,SAAS,EAAE,CAAC;IAChC,IAAA,KAAgC,KAAK,CAAC,QAAQ,CAA6B,cAAM,OAAA,UAAU,aAAV,UAAU,cAAV,UAAU,GAAI,IAAI,GAAG,EAAE,EAAvB,CAAuB,CAAC,EAAxG,WAAW,QAAA,EAAE,cAAc,QAA6E,CAAC;IAEhH,IAAM,YAAY,GAAG,KAAK,CAAC,WAAW,CAAC,UAAC,EAAc;YAAZ,GAAG,SAAA,EAAE,KAAK,WAAA;QAClD,cAAc,CAAC,UAAA,IAAI;YACjB,IAAM,IAAI,GAAG,IAAI,GAAG,CAAwB,IAAI,CAAC,CAAC;YAClD,IAAI,CAAC,GAAG,CAAC,GAAG,EAAE,KAAK,CAAC,CAAC;YACrB,OAAO,IAAI,CAAC;QACd,CAAC,CAAC,CAAC;IACL,CAAC,EAAE,EAAE,CAAC,CAAC;IAEP,uDAAuD;IACvD,KAAK,CAAC,SAAS,CAAC;QACd,cAAc,CAAC,UAAU,aAAV,UAAU,cAAV,UAAU,GAAI,IAAI,GAAG,EAAE,CAAC,CAAC;IAC1C,CAAC,EAAE,CAAC,UAAU,CAAC,CAAC,CAAC;IAEjB,2CAA2C;IAC3C,KAAK,CAAC,SAAS,CAAC;QACd,IAAI,CAAC,GAAG,EAAE;YACR,OAAO;SACR;QAED,IAAM,KAAK,GAAG,UAAU,CAAC,WAAW,CAAC,gBAAgB,CAAC,qBAAqB,EAAE,KAAK,EAAE,GAAG,CAAC,CAAC,CAAC;QAE1F,KAAK,CAAC,4BAA4B,CAAC,YAAY,CAAC,CAAC;QAEjD,OAAO;YACL,KAAK,CAAC,6BAA6B,CAAC,YAAY,CAAC,CAAC;QACpD,CAAC,CAAC;IACJ,CAAC,EAAE,CAAC,GAAG,EAAE,YAAY,CAAC,CAAC,CAAC;IAExB,wCAAwC;IACxC,KAAK,CAAC,SAAS,CAAC;QACd,IAAI,CAAC,GAAG,EAAE;YACR,OAAO;SACR;QAED,IAAI,OAAO,GAAG,KAAK,CAAC;QACpB,IAAM,IAAI,GAAG,IAAI,GAAG,CAAwB,WAAW,CAAC,CAAC;QACzD,IAAM,KAAK,GAAG,UAAU,CAAC,WAAW,CAAC,gBAAgB,CAAC,qBAAqB,EAAE,KAAK,EAAE,GAAG,CAAC,CAAC,CAAC;QAE1F,KAAK,CAAC,wBAAwB,CAAC,UAAC,YAAY,EAAE,GAAG;YAC/C,IAAI,CAAC,GAAG,CAAC,GAAG,EAAE,YAAY,CAAC,CAAC;YAC5B,OAAO,GAAG,IAAI,CAAC;QACjB,CAAC,CAAC,CAAC;QAEH,IAAI,OAAO,EAAE;YACX,cAAc,CAAC,IAAI,CAAC,CAAC;SACtB;QAED,uDAAuD;IACzD,CAAC,EAAE,EAAE,CAAC,CAAC;IAEP,IAAM,KAAK,GAAG,KAAK,CAAC,OAAO,CAAC;QAC1B,OAAO;YACL,WAAW,aAAA;SACZ,CAAC;IACJ,CAAC,EAAE,CAAC,WAAW,CAAC,CAAC,CAAC;IAElB,OAAO,oBAAC,sBAAsB,CAAC,QAAQ,aAAC,KAAK,EAAE,KAAK,IAAM,KAAK,EAAI,CAAC;AACtE,CAAC,CAAC;AAEF;;GAEG;AACH,MAAM,CAAC,IAAM,6BAA6B,GAAG;IAC3C,OAAO,KAAK,CAAC,UAAU,CAAC,sBAAsB,CAAC,CAAC,WAAW,CAAC;AAC9D,CAAC,CAAC"}
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.d.ts b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.d.ts
 new file mode 100644
@@ -31725,15 +31787,15 @@ index 0000000..0822763
 +export declare const useShadowConfig: (stylesheetKey: string, win?: Window) => import("@fluentui/merge-styles").ShadowConfig;
 diff --git a/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.js b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.js
 new file mode 100644
-index 0000000..9c27090
+index 0000000..63263d3
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.js
-@@ -0,0 +1,79 @@
+@@ -0,0 +1,141 @@
 +import { __assign, __rest, __spreadArray } from "tslib";
 +import * as React from 'react';
-+import { GLOBAL_STYLESHEET_KEY, makeShadowConfig } from '@fluentui/merge-styles';
-+import { FocusRectsProvider } from '../FocusRectsProvider';
++import { GLOBAL_STYLESHEET_KEY, Stylesheet, makeShadowConfig, cloneCSSStyleSheet, } from '@fluentui/merge-styles';
 +import { useMergeStylesRootStylesheets } from './MergeStylesRootContext';
++import { useDocument, useWindow } from '@fluentui/react-window-provider';
 +var MergeStylesShadowRootContext = React.createContext(undefined);
 +/**
 + * Context for a shadow root.
@@ -31746,11 +31808,9 @@ index 0000000..9c27090
 +            shadowRoot: shadowRoot,
 +        };
 +    }, [shadowRoot]);
-+    var focusProviderRef = React.useRef(null);
 +    return (React.createElement(MergeStylesShadowRootContext.Provider, __assign({ value: value }, props),
 +        React.createElement(GlobalStyles, null),
-+        React.createElement(FocusRectsProvider, { providerRef: focusProviderRef },
-+            React.createElement("div", { className: "ms-MergeStylesShadowRootProvider", ref: focusProviderRef }, props.children))));
++        props.children));
 +};
 +export var MergeStylesShadowRootConsumer = function (_a) {
 +    var stylesheetKey = _a.stylesheetKey, children = _a.children;
@@ -31769,17 +31829,81 @@ index 0000000..9c27090
 +export var useAdoptedStylesheet = function (stylesheetKey) {
 +    var shadowCtx = useMergeStylesShadowRootContext();
 +    var rootMergeStyles = useMergeStylesRootStylesheets();
++    var doc = useDocument();
++    var win = useWindow();
++    // console.log(doc?.defaultView.__SENTINAL__);
++    var polyfillInsertListners = React.useRef({});
++    React.useEffect(function () {
++        var polyfillListeners = polyfillInsertListners.current;
++        polyfillInsertListners.current = {};
++        return function () {
++            var sheet = Stylesheet.getInstance(makeShadowConfig(stylesheetKey, true, win));
++            Object.keys(polyfillListeners).forEach(function (key) {
++                sheet.offInsertRuleIntoConstructableStyleSheet(polyfillListeners[key]);
++            });
++        };
++    }, [win, stylesheetKey]);
 +    if (!shadowCtx) {
 +        return false;
 +    }
 +    if (shadowCtx.shadowRoot && !shadowCtx.stylesheets.has(stylesheetKey)) {
 +        var adoptableStyleSheet = rootMergeStyles.get(stylesheetKey);
-+        if (adoptableStyleSheet) {
-+            shadowCtx.stylesheets.set(stylesheetKey, adoptableStyleSheet);
-+            shadowCtx.shadowRoot.adoptedStyleSheets = __spreadArray(__spreadArray([], shadowCtx.shadowRoot.adoptedStyleSheets, true), [adoptableStyleSheet], false);
++        if (adoptableStyleSheet && doc) {
++            adoptSheet(shadowCtx, doc, stylesheetKey, adoptableStyleSheet, polyfillInsertListners.current);
 +        }
 +    }
 +    return true;
++};
++var updatePolyfillSheet = function (shadowCtx, stylesheetKey, rule) {
++    var shadowRoot = shadowCtx.shadowRoot;
++    var style = shadowRoot.querySelector("[data-merge-styles-stylesheet-key=\"".concat(stylesheetKey, "\"]"));
++    if (style === null || style === void 0 ? void 0 : style.sheet) {
++        style.sheet.insertRule(rule);
++    }
++};
++var adoptSheet = function (shadowCtx, doc, stylesheetKey, stylesheet, listenerRef) {
++    var _a;
++    var shadowRoot = shadowCtx.shadowRoot;
++    shadowCtx.stylesheets.set(stylesheetKey, stylesheet);
++    var sheet = Stylesheet.getInstance();
++    if (sheet.supportsConstructableStylesheets()) {
++        // The current spec allows the `adoptedStyleSheets` array to be modified.
++        // Previous versions of the spec required a new array to be created.
++        // For more details see: https://github.com/microsoft/fast/pull/6703
++        if (sheet.supportsModifyingAdoptedStyleSheets()) {
++            shadowRoot.adoptedStyleSheets.push(stylesheet);
++        }
++        else {
++            shadowRoot.adoptedStyleSheets = __spreadArray(__spreadArray([], shadowRoot.adoptedStyleSheets, true), [stylesheet], false);
++        }
++    }
++    else {
++        var style = doc.createElement('style');
++        style.setAttribute('data-merge-styles-stylesheet-key', stylesheetKey);
++        var otherStyles = shadowRoot.querySelectorAll('[data-merge-styles-stylesheet-key]');
++        if (otherStyles.length > 0) {
++            shadowRoot.insertBefore(style, otherStyles[otherStyles.length - 1].nextSibling);
++        }
++        else {
++            shadowRoot.insertBefore(style, shadowRoot.firstChild);
++        }
++        if (style.sheet) {
++            cloneCSSStyleSheet(stylesheet, style.sheet);
++            if (!listenerRef[stylesheetKey]) {
++                var onInsert = function (_a) {
++                    var key = _a.key, rule = _a.rule;
++                    if (key === stylesheetKey) {
++                        if (shadowCtx && rule) {
++                            updatePolyfillSheet(shadowCtx, key, rule);
++                        }
++                    }
++                };
++                var polyfillSheet = Stylesheet.getInstance(makeShadowConfig(stylesheetKey, true, (_a = doc.defaultView) !== null && _a !== void 0 ? _a : undefined));
++                polyfillSheet.onInsertRuleIntoConstructableStyleSheet(onInsert);
++                listenerRef[stylesheetKey] = onInsert;
++            }
++        }
++    }
 +};
 +/**
 + * Test if a context is available.
@@ -31811,11 +31935,11 @@ index 0000000..9c27090
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.js.map b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.js.map
 new file mode 100644
-index 0000000..5f9d6d2
+index 0000000..7bd9539
 --- /dev/null
 +++ b/node_modules/@fluentui/utilities/lib/shadowDom/MergeStylesShadowRootContext.js.map
 @@ -0,0 +1 @@
-+{"version":3,"file":"MergeStylesShadowRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesShadowRootContext.tsx"],"names":[],"mappings":"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"}
++{"version":3,"file":"MergeStylesShadowRootContext.js","sourceRoot":"","sources":["../../src/shadowDom/MergeStylesShadowRootContext.tsx"],"names":[],"mappings":"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"}
 \ No newline at end of file
 diff --git a/node_modules/@fluentui/utilities/lib/string.js.map b/node_modules/@fluentui/utilities/lib/string.js.map
 index 52e42c4..6585daa 100644
